@@ -127,7 +127,7 @@ export function AssignUsersModal({ isOpen, onClose, tourId, tourTitle }: AssignU
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Gán người dùng vào tour">
+    <Modal isOpen={isOpen} onClose={onClose} title="Thêm thành viên đoàn vào tour">
       <div className="space-y-4">
         {/* Tour info */}
         <div className="bg-blue-50 p-3 rounded-lg">
@@ -259,8 +259,8 @@ export function AssignUsersModal({ isOpen, onClose, tourId, tourTitle }: AssignU
             {(() => {
               const newUserIds = selectedUserIds.filter(userId => !assignedUserIds.includes(userId));
               const newCount = newUserIds.length;
-              if (newCount === 0) return 'Không có mới';
-              return `Gán ${newCount} mới`;
+              if (newCount === 0) return 'Không thêm mới';
+              return `Thêm ${newCount} thành viên mới`;
             })()}
           </Button>
         </div>

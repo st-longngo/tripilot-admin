@@ -268,7 +268,7 @@ export default function TourFormPage() {
                 className="flex items-center space-x-2 absolute right-0"
               >
                 <UserPlusIcon className="h-4 w-4" />
-                <span>Gán người dùng</span>
+                <span>Thêm thành viên đoàn</span>
               </Button>
             }
           </div>
