@@ -61,25 +61,25 @@ export function generateId(): string {
   return Math.random().toString(36).substring(2) + Date.now().toString(36)
 }
 
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   delay: number
 ): (...args: Parameters<T>) => void {
   let timeoutId: NodeJS.Timeout
   return (...args: Parameters<T>) => {
     clearTimeout(timeoutId)
-    timeoutId = setTimeout(() => func.apply(null, args), delay)
+    timeoutId = setTimeout(() => func(...args), delay)
   }
 }
 
 export function parseSearchParams(searchParams: URLSearchParams) {
-  const params: Record<string, any> = {}
+  const params: Record<string, unknown> = {}
   
   for (const [key, value] of searchParams.entries()) {
     if (key.includes('[]')) {
       const arrayKey = key.replace('[]', '')
       if (!params[arrayKey]) params[arrayKey] = []
-      params[arrayKey].push(value)
+      ;(params[arrayKey] as unknown[]).push(value)
     } else {
       params[key] = value
     }
@@ -88,14 +88,14 @@ export function parseSearchParams(searchParams: URLSearchParams) {
   return params
 }
 
-export function buildSearchParams(params: Record<string, any>): string {
+export function buildSearchParams(params: Record<string, unknown>): string {
   const searchParams = new URLSearchParams()
   
   Object.entries(params).forEach(([key, value]) => {
     if (Array.isArray(value)) {
-      value.forEach(v => searchParams.append(`${key}[]`, v))
+      value.forEach(v => searchParams.append(`${key}[]`, String(v)))
     } else if (value !== undefined && value !== null && value !== '') {
-      searchParams.append(key, value.toString())
+      searchParams.append(key, String(value))
     }
   })
   

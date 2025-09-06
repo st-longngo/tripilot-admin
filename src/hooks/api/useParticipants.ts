@@ -143,8 +143,8 @@ export function useBulkUpdateParticipantStatus() {
   const { showSuccess, showError } = useNotifications();
 
   return useMutation({
-    mutationFn: ({ participantIds, status }: { participantIds: string[]; status: string }) =>
-      participantService.bulkUpdateStatus(participantIds, status as any),
+    mutationFn: ({ participantIds, status }: { participantIds: string[]; status: 'pending' | 'confirmed' | 'checked_in' | 'completed' }) =>
+      participantService.bulkUpdateStatus(participantIds, status),
     onSuccess: (_, { participantIds }) => {
       queryClient.invalidateQueries({ queryKey: ['participants'] });
       showSuccess(`Đã cập nhật trạng thái cho ${participantIds.length} thành viên`);

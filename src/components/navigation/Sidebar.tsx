@@ -151,7 +151,6 @@ const Sidebar: React.FC = () => {
                   </div>
                 ) : (
                   <Link
-                    // @ts-expect-error - Next.js Link href type issue
                     href={item.href}
                     className='flex items-center flex-1'
                   >
@@ -185,7 +184,6 @@ const Sidebar: React.FC = () => {
                   {item.children?.map((child) => (
                     <Link
                       key={child.name}
-                      // @ts-expect-error - Next.js Link href type issue
                       href={child.href}
                       className={cn(
                         'block px-3 py-2 text-sm rounded-md transition-colors',

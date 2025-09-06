@@ -99,19 +99,43 @@ export const useNotifications = () => {
   const { notifications, addNotification, removeNotification, markNotificationAsRead, clearAllNotifications } = useUIStore();
   
   const showSuccess = (title: string, message?: string) => {
-    addNotification({ type: 'success', title, message });
+    addNotification({ 
+      type: 'success', 
+      title, 
+      message: message || '', 
+      read: false, 
+      createdAt: new Date() 
+    });
   };
 
   const showError = (title: string, message?: string) => {
-    addNotification({ type: 'error', title, message });
+    addNotification({ 
+      type: 'error', 
+      title, 
+      message: message || '', 
+      read: false, 
+      createdAt: new Date() 
+    });
   };
 
   const showWarning = (title: string, message?: string) => {
-    addNotification({ type: 'warning', title, message });
+    addNotification({ 
+      type: 'warning', 
+      title, 
+      message: message || '', 
+      read: false, 
+      createdAt: new Date() 
+    });
   };
 
   const showInfo = (title: string, message?: string) => {
-    addNotification({ type: 'info', title, message });
+    addNotification({ 
+      type: 'info', 
+      title, 
+      message: message || '', 
+      read: false, 
+      createdAt: new Date() 
+    });
   };
 
   return {

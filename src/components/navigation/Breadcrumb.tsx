@@ -1,5 +1,5 @@
 import React from 'react';
-import { BreadcrumbItem } from '@/types';
+import { BreadcrumbItem } from '@/types/components';
 import Link from 'next/link';
 import { ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
 
@@ -8,17 +8,11 @@ interface BreadcrumbProps {
   maxItems?: number;
 }
 
-interface BreadcrumbItemType {
-  name: string;
-  href?: string;
-  current?: boolean;
-}
-
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, maxItems = 5 }) => {
   const displayItems = items.length > maxItems 
     ? [
         items[0],
-        { name: '...', href: undefined },
+        { label: '...', href: undefined },
         ...items.slice(-2)
       ]
     : items;
@@ -44,7 +38,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, maxItems = 5 }) => {
                 href={item.href}
                 className="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors"
               >
-                {item.name}
+                {item.label}
               </Link>
             ) : (
               <span
@@ -54,7 +48,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, maxItems = 5 }) => {
                     : 'text-gray-500'
                 }`}
               >
-                {item.name}
+                {item.label}
               </span>
             )}
           </li>

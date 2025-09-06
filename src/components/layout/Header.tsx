@@ -1,5 +1,6 @@
 import React from 'react';
 import { Breadcrumb } from '@/components/navigation/Breadcrumb';
+import { BreadcrumbItem } from '@/types/components';
 import { useUIStore, useAuthStore } from '@/store';
 import {
   BellIcon,
@@ -13,7 +14,7 @@ import Link from 'next/link';
 
 interface HeaderProps {
   pageTitle?: string;
-  breadcrumbs?: Array<{ name: string; href?: string; current?: boolean }>;
+  breadcrumbs?: BreadcrumbItem[];
   actions?: React.ReactNode;
 }
 

@@ -9,9 +9,7 @@ import {
   Address,
   EmergencyContact,
   MedicalInformation,
-  RoomPreference,
-  ContactInformation,
-  OperatingHours
+  RoomPreference
 } from './api';
 
 // ============================================================================

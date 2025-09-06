@@ -1,13 +1,14 @@
 import React from 'react';
 import { Sidebar } from '@/components/navigation/Sidebar';
 import { Header } from '@/components/layout/Header';
+import { BreadcrumbItem } from '@/types/components';
 import { useUIStore } from '@/store';
 import { cn } from '@/lib/utils';
 
 interface AppLayoutProps {
   children: React.ReactNode;
   pageTitle?: string;
-  breadcrumbs?: Array<{ name: string; href?: string; current?: boolean }>;
+  breadcrumbs?: BreadcrumbItem[];
   actions?: React.ReactNode;
 }
 

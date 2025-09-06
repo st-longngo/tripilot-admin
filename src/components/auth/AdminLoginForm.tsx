@@ -59,7 +59,7 @@ export const AdminLoginForm: React.FC<AdminLoginFormProps> = ({
           window.location.reload();
         }, 1000);
       }
-    } catch (error) {
+    } catch {
       // Show error toast
       toast.error('Đăng nhập thất bại');
     }

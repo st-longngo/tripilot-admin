@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import { Modal } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/Button';
